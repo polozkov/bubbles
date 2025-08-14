@@ -1,0 +1,43 @@
+html,
+body {
+    margin: 0;
+    padding: 1px;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    overflow-y: hidden;
+}
+
+body {
+    overflow-y: auto;
+}
+
+canvas.class-my-game {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    outline: black 1px solid;
+}
+
+canvas.class-my-game {
+    background-color: yellow;
+    width: min(90vw, 90vh);
+    height: min(90vw, 90vh);
+}
+
+div.class-my-header {
+    display: none;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+div.class-my-game {
+    font-size: 1.5rem;
+}
+
+#id-my-form * {
+    font-size: 1.5rem;
+}
