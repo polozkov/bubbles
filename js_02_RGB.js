@@ -10,9 +10,6 @@ G.RGB.C_RED = [255,0,0,255];
 G.RGB.C_WHITE = [255,255,255,255];
 G.RGB.C_NONE = [0,0,0,0];
 
-G.RGB.C_SMALL_SQUARE_KNOTS = [0,0,0,0];
-
-
 G.RGB.arrow = G.RGB.f_hex_to_rgba('#66FF66');;
 //задай цвета и переведи их в RGBA(r,g,b,a) массив из 4 элементов r,g,b,a in [0..255]
 G.RGB.dark_light = ['#b58863', '#f0d9b5'].map(s => G.RGB.f_hex_to_rgba(s));
@@ -24,7 +21,7 @@ G.RGB.stroke_text = G.RGB.C_BLACK;
 G.RGB.fill_text = G.RGB.f_hex_to_rgba('#000000', 255);
 
 G.RGB.stroke_text_info = G.RGB.C_BLACK;
-G.RGB.fill_text_info = G.RGB.f_hex_to_rgba('#FFFF00', 212);
+G.RGB.fill_text_info = G.RGB.f_hex_to_rgba('#CCCC00', 240);
 
 //цвет для очистки холста
 G.RGB.empty_canvas = G.RGB.C_WHITE;

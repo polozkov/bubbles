@@ -9,22 +9,26 @@
 </head>
 
 <body>
-    <div class="class-my-header">
-        [<a href="https://example.com">Главная страница</a>]
-        [<a href="https://example.com">Контакты</a>]
-        [<a href="https://example.com">Список игр</a>]
-    </div>
-    <canvas class="class-my-game" id="id-my-game"></canvas>
+    <h1>Головоломка "Пузырьки".</h1>
+    
+    <p id="id-my-goal" class="class-my-font"> Цель - сделать так, чтобы во всех "рядах": строках, столбцах, двух больших диагоналях - стало поровну пузырьков каждого цвета.</p>
 
-    <form id="id-my-form">
-        <span>Всего 5 задач.</span>
-        <button id="id-my-button-submit" type="button">Выбрать задачу номер </button>
-        <input id="id-my-input-number" type="number" value="1" min="1" max="5" step="1"/>
-    </form>
+    <canvas id="id-my-game"></canvas>
 
-    <div class="class-my-game">Эта головоломка "Пузырьки". Цель - расположить пузырьки так, чтобы на всех горизонталях,
-        вертикалях и двух больших диагоналях было поровну пузырьков каждого цвета. Подробности в книге Антонио Грамши
-        "МАТЕМАТИКА? Легко!"</div>
+    <p id="id-my-task">
+        <button id="id-my-button-minus" type="button" class="class-my-font">Предыдущая</button>
+        <button id="id-my-button-plus" type="button" class="class-my-font">Следующая</button>
+        <br>
+        <span id="id-my-span-task" class="class-my-font"></span>
+        <input type="range" id="id-my-range-task" min="1" value="1" max="12" step="1" class="class-my-font"/>
+        <br>
+        <span id="id-my-span-book" class="class-my-font"></span>
+        <br>
+        <span id="id-my-span-answer" class="class-my-font"></span>
+    </p>
+
+    <p id="id-my-info-about-game" class="class-my-font">Подробности в книге Антонио Грамши
+        <a target="_blank" href="https://ast.ru/book/matematika-legko-zadachi-i-golovolomki-raznykh-urovney-slozhnosti-871239/">"МАТЕМАТИКА? Легко!"</a>, издательство АСТ, 2024 год. </p>
 
     <script src="js_01_G.js"></script>
     <script src="js_02_RGB.js"></script>
@@ -40,6 +44,25 @@
 
     <script src="js_10_draw_combo.js"></script>
     <script src="js_11_mouse_event.js"></script>
+
+    <img src="img_book.jpg" class="class-image-size"/>
+    
+    <p id="id-my-info-about-programmer" class="class-my-font">Программист: Полозков Сергей Сергеевич.
+        <br>
+        Профиль программиста на github:
+        <br>
+        <a target="_blank" href="https://github.com/polozkov" class="class-my-font">github.com/polozkov</a>
+        
+        <br>
+        Код этой игры:
+        <br>
+        <a target="_blank" href="https://github.com/polozkov/bubbles" class="class-my-font">github.com/polozkov/bubbles</a>
+        
+        <br>
+        Эта страница:
+        <br>
+        <a target="_blank" href="https://polozkov.github.io/bubbles" class="class-my-font">polozkov.github.io/bubbles</a>
+    <p>
 </body>
 
 </html>

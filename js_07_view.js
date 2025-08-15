@@ -16,14 +16,16 @@ G.VIEW.ratio_font_stroke = 1 / 30;
 G.VIEW.ratio_font_stroke_info = 1 / 30;
 
 //если 0.5, то от стрелки ничего не останется
+//на столько укороти стрелку
 G.VIEW.arrow_cut_for_making_shorter = 0.3;
-G.VIEW.arrow_cap_ratio = 0.5;
+//хвосты стрелки (доля от стороны описанного квадрата)
+G.VIEW.arrow_cap_ratio = 0.75;
 G.VIEW.arrow_line_width = 0.1;
 
 //считай толщину стенки по известному размеру квадратной ячейки
 G.VIEW.f_calc_border = function (cell, ratio = G.VIEW.ratio_border_50) {
     //округли вниз до целого числа
-    let low_integer_bound = Math.floor(cell * ratio);
+    var low_integer_bound = Math.floor(cell * ratio);
     //толщина стенки должна быть такой
     return low_integer_bound;
 };

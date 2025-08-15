@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     margin: 0;
     padding: 1px;
     height: 100%;
@@ -13,31 +12,37 @@ html {
 
 body {
     overflow-y: auto;
+    padding-left: 1vw;
 }
 
-canvas.class-my-game {
+#id-my-game {
     margin-right: auto;
     margin-left: auto;
     display: block;
     outline: black 1px solid;
-}
-
-canvas.class-my-game {
     background-color: yellow;
     width: min(90vw, 90vh);
     height: min(90vw, 90vh);
 }
 
-div.class-my-header {
-    display: none;
-    font-size: 1.5rem;
+h1 {
+    font-size: 1.6rem;
     text-align: center;
 }
 
-div.class-my-game {
-    font-size: 1.5rem;
+.class-my-font {
+    font-size: 1.3rem;
 }
 
-#id-my-form * {
-    font-size: 1.5rem;
+#id-my-range-task {
+    width: 40vw;
+    border-radius: 1px;
+}
+
+.class-image-size {
+    width: 90vw;
+    height: 90vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }

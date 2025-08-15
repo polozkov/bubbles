@@ -41,8 +41,8 @@
     G.F_XY.prototype.f_min = function (p) { return new G.F_XY(Math.min(this.x, p.x), Math.min(this.y, p.y)); };
     G.F_XY.prototype.f_max = function (p) { return new G.F_XY(Math.max(this.x, p.x), Math.max(this.y, p.y)); };
     //минималка при сравнении с массивом (ижем левую верхнюю границу)
-    G.F_XY.prototype.f_min_array = function (p) { let t = this.f_get_copy(); for (let i of p) t = t.f_min(i); return t; };
-    G.F_XY.prototype.f_max_array = function (p) { let t = this.f_get_copy(); for (let i of p) t = t.f_max(i); return t; };
+    G.F_XY.prototype.f_min_array = function (p) { var t = this.f_get_copy(); for (var i of p) t = t.f_min(i); return t; };
+    G.F_XY.prototype.f_max_array = function (p) { var t = this.f_get_copy(); for (var i of p) t = t.f_max(i); return t; };
 
     G.F_XY.prototype.f_change_x = function(new_value) {return new G.F_XY(new_value, this.y);};
     G.F_XY.prototype.f_change_y = function(new_value) {return new G.F_XY(this.x, new_value);};
@@ -61,20 +61,20 @@
 
     //все 4 поворота на 90 градусов без отражений
     G.F_XY.prototype.f_get_rotate_4 = function () {
-        const x = this.x, y = this.y;
-        const arr_4 = [[x, y], [-y, x], [-x, -y], [y, -x]];
+        var x = this.x, y = this.y;
+        var arr_4 = [[x, y], [-y, x], [-x, -y], [y, -x]];
         return arr_4.map(xy => G.F_XY(xy[0], xy[1]));
     };
     //повороты на 90 градусов и их отражения
     G.F_XY.prototype.f_get_rotate_8 = function () {
-        const x = this.x, y = this.y;
-        const arr_8 = [[x, y], [-y, x], [-x, -y], [y, -x], [-x, y], [y, x], [x, -y], [-y, -x]];
+        var x = this.x, y = this.y;
+        var arr_8 = [[x, y], [-y, x], [-x, -y], [y, -x], [-x, y], [y, x], [x, -y], [-y, -x]];
         return arr_8.map(xy => G.F_XY(xy[0], xy[1]));
     };
     //повороты и отражения, сохраняющие цвет клетки при шахматной раскраске
     G.F_XY.prototype.f_get_rotate_4_save_black_white = function () {
-        const x = this.x, y = this.y;
-        const arr_4_save = [[x, y], [y, x], [-x, -y], [-y, -x]];
+        var x = this.x, y = this.y;
+        var arr_4_save = [[x, y], [y, x], [-x, -y], [-y, -x]];
         return arr_4_save.map(xy => G.F_XY(xy[0], xy[1]));
     };
 
@@ -85,14 +85,14 @@
     G.F_XY.prototype.f_len = function (b) {return Math.sqrt(this.f_len_2(b)); };
  
     G.F_XY.prototype.f_interpolate = function (b, n01) {
-        let delta = b.f_subtract(this);
-        let scaled_delta = delta.f_scale(n01);
+        var delta = b.f_subtract(this);
+        var scaled_delta = delta.f_scale(n01);
         return this.f_add(scaled_delta);
     };
     //дан отрезок, который является диагональя квадрата, построй вторую диагональ квадрата
     G.F_XY.prototype.f_diagonal = function (opposite) {
-        let center = this.f_center(opposite);
-        let v90 = opposite.f_subtract(center).f_get_rotate_90();
+        var center = this.f_center(opposite);
+        var v90 = opposite.f_subtract(center).f_get_rotate_90();
         return [center.f_add(v90), center.f_subtract(v90)];
     };
 })();

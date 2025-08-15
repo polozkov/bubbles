@@ -1,5 +1,5 @@
 // глобальный объект со всей моей игрой
-let G = {
+var G = {
     //точка на двумерной плоскости (координата - обычно из двух целых чисел, но не обязательно)
     F_XY: function (x, y) { this.x = x, this.y = y; },
 
@@ -8,7 +8,7 @@ let G = {
         this.color_fill = color_fill;
         this.color_stroke = color_stroke;
         this.width_stroke = width_stroke;
-        this.line_cap = line_cap;
+        this.line_cap = line_cap; //концы линий (нипример, скруглённые)
     },
 
     //левый верхний угол; размеры ячейки; количесво ячеек (на квадратной доске)
@@ -31,26 +31,29 @@ let G = {
     //всё для прорисовки (холст, буфер для отрисовки без мерцания, размеры холста)
     DRAW: {canvas: null, ctx: null, wh: null },
 
-    EL: {button_submit: null, input_number: null},
+    //элементы управления
+    EL: {},
 
+    //активное задание (расклад, который сейчас Вы решаете)
     TASKS: {task_active: null},
 };
 
+//четыре компонета в цвет в виде строки RGBA
 G.f_rgba_to_str = (a) => ('RGBA(' + a[0] + ',' + a[1] + ',' + a[2] + ',' + (a[3] / 255).toFixed(4) + ')');
 
+//по стилю получи цвет заливки
 G.F_STYLE.prototype.f_get_color_fill = function () { return G.f_rgba_to_str(this.color_fill); };
+//по стилю получи цвет обводки линий
 G.F_STYLE.prototype.f_get_color_stroke = function () {return G.f_rgba_to_str(this.color_stroke); };
+//по стилю получи толщину линий
+G.F_STYLE.prototype.f_get_width_stroke = function () {return this.width_stroke; };
 
-G.F_STYLE.prototype.f_get_width_stroke = function () {
-    let ratio = 1;
-    return (this.width_stroke * ratio);
-};
-
+//установи стиль для данного контекста рисования (заливку, обводку, толщину, концы линий)
 G.F_STYLE.prototype.f_set_ctx_style = function(ctx = G.DRAW.ctx) {
     ctx.fillStyle = this.f_get_color_fill();
     ctx.strokeStyle = this.f_get_color_stroke();
     ctx.lineWidth = this.f_get_width_stroke();
-    ctx.lineCap = this.line_cap
+    ctx.lineCap = this.line_cap;
 };
 
 
