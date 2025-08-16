@@ -1,6 +1,6 @@
 G.DRAW.f_resize_and_redraw = function () {
     //обнови размеры перед рисованием всего остального
-    G.DRAW.f_renew_sizes(G.TASKS.task_active.n_size);
+    G.DRAW.f_renew_sizes(G.TASKS.task_active.n_size, [1,1], G.F_NN(G.VIEW.ratio_canvas_board));
     G.DRAW.f_clear(G.RGB.empty_canvas, G.DRAW.ctx);
 
     G.DRAW.f_draw_task(G.TASKS.task_active, G.F_LEFT_TOP_wh());

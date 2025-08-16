@@ -13,6 +13,7 @@ html {
 body {
     overflow-y: auto;
     padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 #id-my-game {
@@ -21,13 +22,23 @@ body {
     display: block;
     outline: black 1px solid;
     background-color: yellow;
-    width: min(90vw, 90vh);
-    height: min(90vw, 90vh);
 }
 
 h1 {
     font-size: 1.6rem;
     text-align: center;
+    line-height: 1;
+}
+
+h1, p {
+    margin-top: 0;
+    margin-bottom: min(1vw, 1vh);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.class-bold {
+    font-weight: bold;
 }
 
 .class-my-font {
