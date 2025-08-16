@@ -10,25 +10,37 @@
 
 <body>
     <h1>Головоломка "Пузырьки"</h1>
-    
-    <p id="id-my-goal" class="class-my-font">Цель: сделать во всех строках, столбцах и обеих главных <span class="class-bold">диагоналях</span> по <span class="class-bold">одному</span> пузырьку каждого цвета. Жмите <span class="class-bold">стрелки</span> (они показывают возможные ходы).</p>
+
+    <p id="id-my-goal" class="class-my-font">
+        Цель: сделать во всех строках, столбцах и обеих главных <span class="class-bold">диагоналях</span> по <span class="class-bold">одному</span> пузырьку каждого цвета. Все ходы отмечены <span class="class-bold">стрелками</span>.
+    </p>
 
     <canvas id="id-my-game"></canvas>
 
     <p id="id-my-task">
-        <button id="id-my-button-minus" type="button" class="class-my-font">Предыдущая</button>
-        <button id="id-my-button-plus" type="button" class="class-my-font">Следующая</button>
-        <br>
-        <span id="id-my-span-task" class="class-my-font"></span>
-        <input type="range" id="id-my-range-task" min="1" value="1" max="12" step="1" class="class-my-font"/>
-        <br>
-        <span id="id-my-span-book" class="class-my-font"></span>
-        <br>
-        <span id="id-my-span-answer" class="class-my-font"></span>
+        <p>
+            <button id="id-my-button-minus" type="button" class="class-my-font">Предыдущая</button>
+            <button id="id-my-button-plus" type="button" class="class-my-font">Следующая</button>
+        </p>
+
+        <p>
+            <span id="id-my-span-task" class="class-my-font"></span>
+            <input type="range" id="id-my-range-task" min="1" value="1" max="12" step="1" class="class-my-font" />
+        </p>
+
+        <p>
+            <span id="id-my-span-book" class="class-my-font"></span>
+        </p>
+
+        <p>
+            <span id="id-my-span-answer" class="class-my-font"></span>
+        </p>
     </p>
 
     <p id="id-my-info-about-game" class="class-my-font">Подробности в книге Антонио Грамши
-        <a target="_blank" class="class-bold" href="https://ast.ru/book/matematika-legko-zadachi-i-golovolomki-raznykh-urovney-slozhnosti-871239/">"МАТЕМАТИКА? Легко!"</a>, издательство АСТ, 2024 год. </p>
+        <a target="_blank" id="id-book-info" class="class-bold"
+            href="https://ast.ru/book/matematika-legko-zadachi-i-golovolomki-raznykh-urovney-slozhnosti-871239/">"МАТЕМАТИКА? Легко!"</a>, издательство АСТ, 2024 год.
+    </p>
 
     <script src="js_01_G.js"></script>
     <script src="js_02_RGB.js"></script>
@@ -45,27 +57,25 @@
     <script src="js_10_draw_combo.js"></script>
     <script src="js_11_mouse_event.js"></script>
 
-    <img src="img_book.jpg" class="class-image-size"/>
-    
+    <img src="img_book.jpg" class="class-image-size" />
+
     <p id="id-my-info-about-programmer" class="class-my-font">
-        Программист:
-        <br>
-        Полозков Сергей Сергеевич.
-        <br>
-        Профиль на github:
-        <br>
-        <a target="_blank" href="https://github.com/polozkov" class="class-my-font">github.com/polozkov</a>
+        <p class="class-my-font">
+            Программист:<br>Полозков Сергей Сергеевич.
+        </p>
         
-        <br>
-        Код этой игры:
-        <br>
-        <a target="_blank" href="https://github.com/polozkov/bubbles" class="class-my-font">github.com/polozkov/bubbles</a>
-        
-        <br>
-        Эта страница:
-        <br>
-        <a target="_blank" href="https://polozkov.github.io/bubbles" class="class-my-font">polozkov.github.io/bubbles</a>
-    <p>
+        <p class="class-my-font">
+            Профиль на github:<br><a target="_blank" href="https://github.com/polozkov" class="class-my-font">github.com/polozkov</a>
+        </p>
+
+        <p class="class-my-font">
+            Код этой игры:<br><a target="_blank" href="https://github.com/polozkov/bubbles" class="class-my-font">github.com/polozkov/bubbles</a>
+        </p>
+
+        <p class="class-my-font">
+            Эта страница:<br><a target="_blank" href="https://polozkov.github.io/bubbles"class="class-my-font">polozkov.github.io/bubbles</a>
+        </p>
+    </p>
 </body>
 
 </html>
