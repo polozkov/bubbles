@@ -1,7 +1,8 @@
 // доска с пузырками состоит из капилляров (зон) и пузырьков (со значениями 1,2,4,8)
-G.F_TASK = function (arr_bubbles, arr_zones) {
+G.F_TASK = function (arr_bubbles, arr_zones, arr_pairs = []) {
     this.arr_bubbles = arr_bubbles; //пузырки (одномерный массив - кодирующий квадратную матрицу)
     this.arr_zones = arr_zones; //где какая зона
+    this.arr_pairs = arr_pairs; //особые стенки внутри зоны
 
     this.n_size = Math.round(Math.sqrt(arr_bubbles.length));
     this.n2 = this.n_size * this.n_size;
@@ -12,7 +13,13 @@ G.F_TASK = function (arr_bubbles, arr_zones) {
 };
 
 //копия текущего задания
-G.F_TASK.prototype.f_get_copy = function () {return new G.F_TASK(this.arr_bubbles.slice(), this.arr_zones.slice());};
+G.F_TASK.prototype.f_get_copy = function () {
+    return new G.F_TASK(
+        this.arr_bubbles.slice(),
+        this.arr_zones.slice(),
+        this.arr_pairs.map(ab => [ab[0], ab[1]])
+    );
+};
 
 //проверь, что задача решена
 G.F_TASK.prototype.f_is_solved = function () {
@@ -51,6 +58,14 @@ G.F_TASK.prototype.f_n_to_xy = function (n) {
 //по xy-объекту верни номер ячейки
 G.F_TASK.prototype.f_xy_to_n = function (xy) {return (xy.x + (xy.y * this.n_size)); };
 
+G.F_TASK.prototype.f_is_in_blocked_pair = function (na, nb) {
+    var ab = [Math.min(na,nb), Math.max(na,nb)];
+    for (var i_pair of this.arr_pairs) {
+        if ((i_pair[0] === ab[0]) && (i_pair[1] === ab[1])) {return true; };
+    };
+    return false;
+};
+
 //возможен ли ход из ячейки na в ячейку nb ?
 G.F_TASK.prototype.f_is_legal_move = function (na, nb) {
     //ход только внутри одно зоны
@@ -59,6 +74,8 @@ G.F_TASK.prototype.f_is_legal_move = function (na, nb) {
     if ((this.arr_bubbles[na] === 0) || (this.arr_bubbles[nb] > 0)) { return false; };
     //ход только на соседнее по стороне поле
     if (this.f_n_to_xy(na).f_manhattan(this.f_n_to_xy(nb)) !== 1) { return false; };
+
+    if (this.f_is_in_blocked_pair(na, nb)) {return false; };
     return true;
 };
 

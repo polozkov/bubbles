@@ -19,7 +19,7 @@ G.DRAW.f_draw_new_task = function (n_next_task) {
     var n_answer = str_info.split(" ")[3];
 
     G.EL.span_task.innerHTML = "№" + n_next_task + " из " + G.EL.f_amount();
-    G.EL.span_book.innerHTML = "Cтраница №" + n_page + ", рисунок №" + n_picture + ".";
+    G.EL.span_book.innerHTML = "Задание на странице №" + n_page + ".";
     G.EL.span_answer.innerHTML = "Ответ на странице №" + n_answer + ".";
 
     G.VIEW.f_renew_task(n_next_task);

@@ -48,7 +48,8 @@ G.DRAW.f_draw_all_borders = function (task, left_top, ctx) {
             //рисуй границу только между соседними клетками (критерий - единичное манхэтенское расстояние)
             if (obj_xy_cell_a.f_manhattan(obj_xy_cell_b) !== 1) { continue; };
             //рисуй границу только между разными областями (капиллярами)
-            if (task.arr_zones[ia] === task.arr_zones[ib]) { continue; };
+            //... исключение - внутренняя граница
+            if ((task.arr_zones[ia] === task.arr_zones[ib]) && !task.f_is_in_blocked_pair(ia, ib)) { continue; };
             var delta_direction = obj_xy_cell_b.f_subtract(obj_xy_cell_a);
             G.DRAW.f_draw_border_between_cells(left_top, obj_xy_cell_a, delta_direction, task.n_size, ctx);
         }
