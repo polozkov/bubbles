@@ -23,7 +23,7 @@ var G = {
     //настройки цветов
     RGB: {},
     //настройка внешнего вида (но не цветов)
-    VIEW: {font_family: "SchoolBook, Arial, sans-serif"},
+    VIEW: {font_family: "Arial, Helvetica, sans-serif"},
 
     //база данных с заданиями
     DATA: {},
@@ -35,7 +35,7 @@ var G = {
     EL: {},
 
     //активное задание (расклад, который сейчас Вы решаете)
-    TASKS: {task_active: null},
+    TASKS: {task_active: null}
 };
 
 //четыре компонета в цвет в виде строки RGBA

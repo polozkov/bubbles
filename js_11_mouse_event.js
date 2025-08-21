@@ -1,6 +1,6 @@
 G.DRAW.f_resize_and_redraw = function () {
     //обнови размеры перед рисованием всего остального
-    G.DRAW.f_renew_sizes(G.TASKS.task_active.n_size, [1,1], G.F_NN(G.VIEW.ratio_canvas_board));
+    G.DRAW.f_renew_sizes(G.TASKS.task_active.n_size, [1,1], G.VIEW.ratio_canvas_board_xy);
     G.DRAW.f_clear(G.RGB.empty_canvas, G.DRAW.ctx);
 
     G.DRAW.f_draw_task(G.TASKS.task_active, G.F_LEFT_TOP_wh());
@@ -14,13 +14,18 @@ G.DRAW.f_draw_new_task = function (n_next_task) {
     G.EL.range_task.value = n_next_task;
     var str_info = G.DATA.ARRAY[n_next_task].task_and_page_in_book;
 
-    var n_picture = str_info.split(" ")[1].split("_")[1];
+    G.EL.span_task.innerHTML = "№" + n_next_task + " из " + G.EL.f_amount();
+
+    if (str_info) {
+    //var n_picture = str_info.split(" ")[1].split("_")[1];
     var n_page = str_info.split(" ")[2];
     var n_answer = str_info.split(" ")[3];
-
-    G.EL.span_task.innerHTML = "№" + n_next_task + " из " + G.EL.f_amount();
-    G.EL.span_book.innerHTML = "Задание на странице №" + n_page + ".";
-    G.EL.span_answer.innerHTML = "Ответ на странице №" + n_answer + ".";
+    G.EL.span_book.innerHTML = "Эта задача на стр. " + n_page + ",";
+    G.EL.span_answer.innerHTML = "ответ на стр. " + n_answer + ".";
+    } else {
+        G.EL.span_book.innerHTML = "Эта дополнительная задача."
+        G.EL.span_answer.innerHTML = "Основные задачи в книге."
+    }
 
     G.VIEW.f_renew_task(n_next_task);
     G.DRAW.f_resize_and_redraw();

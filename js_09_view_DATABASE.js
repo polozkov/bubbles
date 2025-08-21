@@ -145,7 +145,9 @@ G.DATA.ARRAY = [
         arr_bubbles: G.DATA.f_to_arr("0800120 4000084 4020100 0881242 1204010 0048028 2184010"),
         arr_zones:   G.DATA.f_to_arr("0011112 3344412 3546478 9566678 95A6A7B CDAAABB CDDDDEE"),
         task_and_page_in_book: "my28 task_28 46 53", arr_pairs: [],
-    },
+    }
+
+    //-----------------------------------------------------------------------
 ];
 
 G.VIEW.f_renew_task = function (n_new_task_index = 1) {
@@ -159,4 +161,5 @@ G.VIEW.f_renew_task = function (n_new_task_index = 1) {
 };
 
 G.VIEW.f_renew_task();
+G.EL.range_task.max = G.DATA.ARRAY.length - 1;
 

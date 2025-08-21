@@ -6,7 +6,7 @@ G.DRAW.f_dpr = function () { return (window.devicePixelRatio || 1); };
 
 
 //обнови размеры доски (пропорции - два небольших целых числа)
-G.DRAW.f_renew_sizes = function (n_cells, MY_RATIO_AB = [1,1], MAX_CLIENT_XY = new G.F_XY(0.9, 0.9)) {
+G.DRAW.f_renew_sizes = function (n_cells, MY_RATIO_AB, MAX_CLIENT_XY) {
     var DOC_WH_100 = new G.F_XY(document.documentElement.clientWidth, document.documentElement.clientHeight);
     var DOC_WH = DOC_WH_100.f_scale_both(MAX_CLIENT_XY);
     var n_01_div = (DOC_WH.x > DOC_WH.y) ? 0 : 1;
@@ -59,7 +59,7 @@ G.DRAW.f_draw_grid = function (xy_board_left_top, xy_sizes, nxy, rgba_dark_light
             var xy_cell_left_top = xy_board_left_top.f_calc_left_top(new G.F_XY(ix, iy));
             //тёмный или светлый цвет (так, чтобы левый нижний угол был тёмным)
             var rgba = rgba_dark_light[((ix + iy) + (nxy.y + 1)) % 2];
-            var style = new G.F_STYLE(rgba, rgba, 0);
+            var style = new G.F_STYLE(rgba, rgba, 1);
             G.DRAW.f_draw_rect(xy_cell_left_top, xy_sizes, style, ctx);
         };
 };
