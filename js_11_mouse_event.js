@@ -20,8 +20,8 @@ G.DRAW.f_draw_new_task = function (n_next_task) {
     //var n_picture = str_info.split(" ")[1].split("_")[1];
     var n_page = str_info.split(" ")[2];
     var n_answer = str_info.split(" ")[3];
-    G.EL.span_book.innerHTML = "Эта задача на стр. " + n_page + ",";
-    G.EL.span_answer.innerHTML = "ответ на стр. " + n_answer + ".";
+    G.EL.span_book.innerHTML = "стр. " + n_page + ", ";
+    G.EL.span_answer.innerHTML = "ответ: стр. " + n_answer + "";
     } else {
         G.EL.span_book.innerHTML = "Эта дополнительная задача."
         G.EL.span_answer.innerHTML = "Основные задачи в книге."
